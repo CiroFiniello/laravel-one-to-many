@@ -25,6 +25,7 @@ class StoreProjectRequest extends FormRequest
                 "title" => ["required", "unique:projects","min:3", "max:255"],
                 "image" => ["required", "url","min:3",],
                 "content" => ["required", "string","min:20", "max:255"],
+                "type_id" => ["required", "string", "max:255", "exists:types,id"],
         ];
     }
 }

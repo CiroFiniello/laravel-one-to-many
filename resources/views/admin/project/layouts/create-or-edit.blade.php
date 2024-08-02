@@ -29,6 +29,20 @@
                     @enderror
                 </div>
 
+                <div class="mb-3">
+                    <select class="form-select" aria-label="Default select example" name="type_id">
+                        @foreach ( $types as $type )
+                        <option value="{{ $type->id }}"
+                            {{$type->id == old("type_id", $project->type_id) ? "selected" : ""}}
+                            >{{$type->name}}</option>
+                        @endforeach
+                    </select>
+                    @error("type_id")
+                    <div class="alert alert-danger">
+                        {{ $message }}
+                    </div>
+                    @enderror
+                </div>
 
                 <div class="mb-3">
                     <label for="image">image url</label>

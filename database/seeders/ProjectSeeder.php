@@ -14,8 +14,10 @@ class ProjectSeeder extends Seeder
      */
     public function run(Faker $faker): void
     {
+        $types = \App\Models\types::all()->pluck("id");
         for ($i=0; $i <100 ; $i++) {
             $newProject = new Project();
+            $newProject->type_id = $faker->randomElement($types);
             $newProject->title= $faker->realText(40);
             $newProject->author= $faker->name();
             $newProject->content= $faker->realText(1000);

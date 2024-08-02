@@ -13,10 +13,14 @@ class Project extends Model
     protected $table = 'projects';
 
     protected $fillable = [
+        'type_id',
         'title',
         'image',
         'content',
         'author',
         'date',
     ];
+    public function type(){
+        return $this->belongsTo(types::class);
+    }
 }
